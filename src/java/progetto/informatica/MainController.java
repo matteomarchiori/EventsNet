@@ -21,9 +21,13 @@ public class MainController {
     }
     
     @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index(ModelMap map){
-        map.put("prova","prova");
+    public String index(){
         return "index";
+    }
+    
+    @RequestMapping(value="/login", method= RequestMethod.GET)
+    public String login(){
+        return "login";
     }
     
 }//MainController

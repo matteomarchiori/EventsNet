@@ -29,7 +29,7 @@
 		        <ul class="right hide-on-med-and-down">
 		          <li class="active"><a href="#">Events</a></li>
 		          <li><a href="#">Contacts</a></li>
-		          <li><a href="pages/login.html"><i class="material-icons">input</i></a></li>
+		          <li><a href="./login"><i class="material-icons">input</i></a></li>
 		        </ul>
 		      </div>
 		    </nav>
