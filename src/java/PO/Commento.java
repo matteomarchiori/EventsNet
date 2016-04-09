@@ -5,7 +5,7 @@
  */
 package PO;
 
-import java.util.Set;
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -14,9 +14,9 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Commento")
+@Table(name="Commenti")
 
-public class Commento {
+public class Commento implements Serializable {
     
     @Id
     @GeneratedValue
@@ -49,8 +49,7 @@ public class Commento {
     public Commento() {
     }
 
-    public Commento(int id_commento, String commento_testo, int commento_voto, int commento_nickname, int commento_evento) {
-        this.id_commento = id_commento;
+    public Commento(String commento_testo, int commento_voto, int commento_nickname, int commento_evento) {
         this.commento_testo = commento_testo;
         this.commento_voto = commento_voto;
         this.commento_nickname = commento_nickname;

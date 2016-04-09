@@ -5,6 +5,7 @@
  */
 package PO;
 
+import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -14,8 +15,8 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Categoria")
-public class Categoria {
+@Table(name="Categorie")
+public class Categoria implements Serializable {
     
     @Id
     @GeneratedValue
@@ -30,7 +31,7 @@ public class Categoria {
     
     @ManyToMany
     @JoinTable(
-        name="Interesse",
+        name="Interessi",
         joinColumns={@JoinColumn(name="Id_Categoria")},
         inverseJoinColumns={@JoinColumn(name="Nickname")}     
     )
@@ -39,8 +40,7 @@ public class Categoria {
     public Categoria() {
     }
 
-    public Categoria(int id_categoria, String nome) {
-        this.id_categoria = id_categoria;
+    public Categoria(String nome) {
         this.nome = nome;
     }
 

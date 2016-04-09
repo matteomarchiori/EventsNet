@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -16,8 +17,8 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Utente")
-public class Utente {
+@Table(name="Utenti")
+public class Utente implements Serializable {
     
     @Id
     @GeneratedValue
@@ -42,7 +43,7 @@ public class Utente {
     
     @ManyToMany
     @JoinTable(
-        name="Interesse",
+        name="Interessi",
         joinColumns={@JoinColumn(name="Nickname")},
         inverseJoinColumns={@JoinColumn(name="Id_Categoria")}     
     )

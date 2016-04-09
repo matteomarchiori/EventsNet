@@ -5,6 +5,7 @@
  */
 package PO;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
@@ -13,8 +14,8 @@ import javax.persistence.*;
  * @author FSEVERI\chen3046
  */
 @Entity
-@Table(name="Evento")
-public class Evento {
+@Table(name="Eventi")
+public class Evento implements Serializable {
     
     @Id
     @GeneratedValue
@@ -22,6 +23,7 @@ public class Evento {
     private int id_evento;
     
     @Column(name="Data")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date data;
     
     @Column(name="Luogo")
@@ -32,7 +34,7 @@ public class Evento {
     
     @ManyToMany
     @JoinTable(
-        name="Coinvolgimento",
+        name="Coinvolgimenti",
         joinColumns={@JoinColumn(name="Id_Evento")},
         inverseJoinColumns={@JoinColumn(name="Id_Artista")}     
     )
@@ -53,8 +55,7 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(int id_evento, Date data, String luogo, String titolo) {
-        this.id_evento = id_evento;
+    public Evento(Date data, String luogo, String titolo) {
         this.data = data;
         this.luogo = luogo;
         this.titolo = titolo;

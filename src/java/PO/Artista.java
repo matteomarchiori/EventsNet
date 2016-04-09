@@ -5,7 +5,7 @@
  */
 package PO;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -15,8 +15,8 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Artista")
-public class Artista {    
+@Table(name="Artisti")
+public class Artista implements Serializable {    
     @Id
     @GeneratedValue
     @Column(name="Id_Artista")
@@ -34,8 +34,7 @@ public class Artista {
     public Artista() {
     }
 
-    public Artista(int id_artista, String nome, String cognome, String nome_arte) {
-        this.id_artista = id_artista;
+    public Artista(String nome, String cognome, String nome_arte) {
         this.nome = nome;
         this.cognome = cognome;
         this.nome_arte = nome_arte;
