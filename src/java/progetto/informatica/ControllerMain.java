@@ -5,6 +5,8 @@
  */
 package progetto.informatica;
 
+import CRUD.CRUD;
+import hibernate.HibernateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author matteo
  */
 @Controller
-public class MainController {
+public class ControllerMain {
     
-    public MainController(){
+    private static CRUD crud = new CRUD(HibernateUtil.getSessionFactory());
+    
+    public ControllerMain(){
     }
     
     @RequestMapping(value="/", method= RequestMethod.GET)

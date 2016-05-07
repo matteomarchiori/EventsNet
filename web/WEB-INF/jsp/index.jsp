@@ -47,29 +47,6 @@
  	</div>
 
  	<div class="white">
- 		<!--
-	 	<div class="container nextCards">
-	 		<div class="col s12 divTitle">
-	 			<h5>NEXT EVENTS</h5>
-	 		</div>
-	 		<br/>
-			<div class="row">
-				<div class="col s3">
-					<div class="card ">
-		            <div class="card-image ">
-		              <img src="img/event.jpg">
-		              <span class="card-title">Event name </span>
-		            </div>
-		            <div class="card-content blue-grey lighten-5">
-		              <p>Event description ... </p>
-		            </div>
-		            <div class="card-action blue-grey lighten-5">
-		              <a href="#">Go to the event</a>
-		            </div>
-		        </div>
-			</div>
-	 	</div>
-	 	-->
 	 	<div class="container nextCards">
 	 	<div class="row">
 	 	<div class="col s12">
