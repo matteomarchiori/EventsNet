@@ -21,7 +21,6 @@ import javax.persistence.*;
 public class Utente implements Serializable {
     
     @Id
-    @GeneratedValue
     @Column(name="Nickname")
     private String nickname;
     
@@ -32,7 +31,7 @@ public class Utente implements Serializable {
     private String cognome;
     
     @Column(name="Password")
-    private String Password;
+    private String password;
     
     
     @OneToMany(mappedBy="Nickname")
@@ -59,7 +58,7 @@ public class Utente implements Serializable {
         this.nickname = nickname;
         this.nome = nome;
         this.cognome = cognome;
-        this.Password = Password;
+        this.password = password;
     }
 
     public void setNickname(String nickname) {
@@ -75,7 +74,7 @@ public class Utente implements Serializable {
     }
 
     public void setPassword(String Password) {
-        this.Password = Password;
+        this.password = password;
     }
 
     public String getNickname() {
@@ -91,7 +90,7 @@ public class Utente implements Serializable {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
     
     

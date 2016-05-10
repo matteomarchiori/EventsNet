@@ -90,7 +90,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in">welcome to the community</div>
                 <div class="intro-heading">It's Nice To Meet You</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                <a href="./register" class="page-scroll btn btn-xl">REGISTER</a>
             </div>
         </div>
     </header>
