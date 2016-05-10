@@ -5,10 +5,13 @@
  */
 package progetto.informatica;
 
+import org.springframework.stereotype.Controller;
+
 /**
  *
  * @author matteo
  */
+@Controller
 public class ControllerRegistrati {
     
 }
