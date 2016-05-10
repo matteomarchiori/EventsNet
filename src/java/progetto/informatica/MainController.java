@@ -14,24 +14,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author matteo
+ * @author chnedev
  */
 @Controller
-public class ControllerMain {
-    
-    private static CRUD crud = new CRUD(HibernateUtil.getSessionFactory());
-    
-    public ControllerMain(){
-    }
-    
-    @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index(){
+public class MainController {
+
+    //private static CRUD crud = new CRUD();
+
+    @RequestMapping(value = {"/"})
+    public String index(ModelMap m) {
         return "index";
     }
-    
-    @RequestMapping(value="/login", method= RequestMethod.GET)
-    public String login(){
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(ModelMap m) {
         return "login";
     }
-    
+
 }//MainController
