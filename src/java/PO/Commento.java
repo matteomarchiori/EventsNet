@@ -37,9 +37,6 @@ public class Commento implements Serializable {
     @JoinColumn(name="Id_Evento")
     private Evento evento;
     
-    
-    
-
     public Commento() {
     }
 

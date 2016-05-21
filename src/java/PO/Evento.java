@@ -40,10 +40,13 @@ public class Evento implements Serializable {
     )
     private Set<Artista> artisti;
     
-    
     @ManyToOne
     @JoinColumn(name="Id_Categoria")
-    private String cat;
+    private Categoria categoria;
+    
+    @ManyToOne
+    @JoinColumn(name="Nickname")
+    private Utente utente;
     
     @OneToMany(mappedBy="Id_Evento")
     private Set<Commento> commenti;
@@ -55,10 +58,11 @@ public class Evento implements Serializable {
     public Evento() {
     }
 
-    public Evento(Date data, String luogo, String titolo) {
+    public Evento(Date data, String luogo, String titolo, Categoria categoria) {
         this.data = data;
         this.luogo = luogo;
         this.titolo = titolo;
+        this.categoria = categoria;
     }
 
     public void setId_evento(int id_evento) {

@@ -26,9 +26,6 @@ public class Categoria implements Serializable {
     @Column(name="Nome")
     private String nome;
     
-    @OneToMany(mappedBy="Id_Categoria")
-    private Set<Evento> eventi;
-    
     @ManyToMany
     @JoinTable(
         name="Interessi",
