@@ -29,19 +29,13 @@ public class Commento implements Serializable {
     @Column(name="Voto")
     private int commento_voto;
     
-    @Column(name="Nickname")
-    private int commento_nickname;
-    
-    @Column(name="Id_evento")
-    private int commento_evento;
-    
     @ManyToOne
     @JoinColumn(name="Nickname")
-    private String utenti;
+    private Utente utente;
     
     @ManyToOne
     @JoinColumn(name="Id_Evento")
-    private String eventi;
+    private Evento evento;
     
     
     
@@ -49,11 +43,10 @@ public class Commento implements Serializable {
     public Commento() {
     }
 
-    public Commento(String commento_testo, int commento_voto, int commento_nickname, int commento_evento) {
+    public Commento(String commento_testo, int commento_voto, Utente utente, Evento evento) {
         this.commento_testo = commento_testo;
         this.commento_voto = commento_voto;
-        this.commento_nickname = commento_nickname;
-        this.commento_evento = commento_evento;
+        this.utente = utente;
     }
 
     public void setId_commento(int id_commento) {
@@ -68,12 +61,12 @@ public class Commento implements Serializable {
         this.commento_voto = commento_voto;
     }
 
-    public void setCommento_nickname(int commento_nickname) {
-        this.commento_nickname = commento_nickname;
+    public void setCommento_nickname(Utente utente) {
+        this.utente = utente;
     }
 
-    public void setCommento_evento(int commento_evento) {
-        this.commento_evento = commento_evento;
+    public void setCommento_evento(Evento evento) {
+        this.evento = evento;
     }
 
     public int getId_commento() {
@@ -88,12 +81,12 @@ public class Commento implements Serializable {
         return commento_voto;
     }
 
-    public int getCommento_nickname() {
-        return commento_nickname;
+    public Utente getCommento_nickname() {
+        return utente;
     }
 
-    public int getCommento_evento() {
-        return commento_evento;
+    public Evento getCommento_evento() {
+        return evento;
     }
     
     

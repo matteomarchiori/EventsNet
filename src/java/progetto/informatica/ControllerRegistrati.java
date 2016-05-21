@@ -28,7 +28,7 @@ public class ControllerRegistrati {
         crud = new CRUD(HibernateUtil.getSessionFactory());
     }
     
-    @RequestMapping(value="/login", params = {"nick","password"}, method= RequestMethod.GET)
+    @RequestMapping(value="/login", method= RequestMethod.POST)
     public String login(@RequestParam(value="nick") String nick, @RequestParam(value="password") String password,HttpSession session){
        Utente u = crud.selectUtente(nick);
        if (u!=null){
