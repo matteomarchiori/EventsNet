@@ -30,7 +30,7 @@ public class Artista implements Serializable {
     
     @Column(name="nome_arte")
     private String nome_arte;
-
+    
     public Artista() {
     }
 
@@ -70,11 +70,5 @@ public class Artista implements Serializable {
 
     public String getNome_arte() {
         return nome_arte;
-    }
-    
-    @ManyToMany (mappedBy="Id_Artista")
-    private Set<Evento> eventi;
-    
-
-    
+    }    
 }
