@@ -7,54 +7,117 @@ package PO;
 
 import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author FSEVERI\chen3046
+ * @author matteo
  */
-
 @Entity
-@Table(name="Categorie")
+@Table(name = "Categorie")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c"),
+    @NamedQuery(name = "Categoria.findByIdCategoria", query = "SELECT c FROM Categoria c WHERE c.idCategoria = :idCategoria"),
+    @NamedQuery(name = "Categoria.findByNome", query = "SELECT c FROM Categoria c WHERE c.nome = :nome")})
 public class Categoria implements Serializable {
-    
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue
-    @Column(name="Id_Categoria")
-    private int id_categoria;
-    
-    @Column(name="Nome")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "Id_Categoria")
+    private Integer idCategoria;
+    @Basic(optional = false)
+    @Column(name = "Nome")
     private String nome;
-    
-    @ManyToMany
-    @JoinTable(
-        name="Interessi",
-        joinColumns={@JoinColumn(name="Id_Categoria")},
-        inverseJoinColumns={@JoinColumn(name="Nickname")}     
-    )
-    private Set<Utente> utenti;
+    @ManyToMany(mappedBy = "categoriaSet")
+    private Set<Utente> utenteSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCategoria")
+    private Set<Evento> eventoSet;
 
     public Categoria() {
     }
 
-    public Categoria(String nome) {
+    public Categoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public Categoria(Integer idCategoria, String nome) {
+        this.idCategoria = idCategoria;
         this.nome = nome;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    @XmlTransient
+    public Set<Utente> getUtenteSet() {
+        return utenteSet;
     }
 
-    public String getNome() {
-        return nome;
+    public void setUtenteSet(Set<Utente> utenteSet) {
+        this.utenteSet = utenteSet;
+    }
+
+    @XmlTransient
+    public Set<Evento> getEventoSet() {
+        return eventoSet;
+    }
+
+    public void setEventoSet(Set<Evento> eventoSet) {
+        this.eventoSet = eventoSet;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idCategoria != null ? idCategoria.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Categoria)) {
+            return false;
+        }
+        Categoria other = (Categoria) object;
+        if ((this.idCategoria == null && other.idCategoria != null) || (this.idCategoria != null && !this.idCategoria.equals(other.idCategoria))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "PO.Categoria[ idCategoria=" + idCategoria + " ]";
     }
     
 }

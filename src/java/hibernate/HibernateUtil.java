@@ -6,10 +6,14 @@ package hibernate;
  * and open the template in the editor.
  */
 
+import PO.Evento;
+import PO.Commento;
+import PO.Categoria;
+import PO.Utente;
+import PO.Artista;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import PO.*;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory

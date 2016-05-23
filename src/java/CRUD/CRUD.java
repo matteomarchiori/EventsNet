@@ -5,11 +5,12 @@
  */
 package CRUD;
 
+import PO.Utente;
+import javax.persistence.NamedQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import PO.*;
 import org.hibernate.SQLQuery;
 
 /**
@@ -34,7 +35,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Utenti where Nickname = \""+nick+"\";").addEntity(Utente.class);
+            query = sessione.createSQLQuery("Artista.findAll");
             Utente u = null;
             if(!query.list().isEmpty()) u = (Utente) query.list().get(0);
             transazione.commit();

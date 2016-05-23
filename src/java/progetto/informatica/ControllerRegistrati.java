@@ -5,6 +5,7 @@
  */
 package progetto.informatica;
 
+import PO.Utente;
 import CRUD.CRUD;
 import hibernate.HibernateUtil;
 import javax.servlet.http.HttpSession;
@@ -13,7 +14,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import PO.*;
 
 /**
  *
