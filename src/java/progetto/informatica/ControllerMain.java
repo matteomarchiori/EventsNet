@@ -19,13 +19,13 @@ public class ControllerMain {
 
     //private static CRUD crud = new CRUD();
 
-    @RequestMapping(value = {"/"})
-    public String index(ModelMap m) {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index() {
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(ModelMap m) {
+    public String login() {
         return "login";
     }
     
