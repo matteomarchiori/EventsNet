@@ -47,14 +47,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand page-scroll" href="./index">Events Net</a>
+                    <a class="navbar-brand page-scroll" href="./">Events Net</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="hidden">
-                            <a href="./index"></a>
+                            <a href="./"></a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#">Home</a>
