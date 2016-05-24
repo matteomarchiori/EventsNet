@@ -57,7 +57,7 @@
                             <a href="./"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Home</a>
+                            <a class="page-scroll" href="./">Home</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#">About</a>
@@ -88,7 +88,6 @@
 
             <div class="tab-content">
                 <div id="signup">   
-                    <h1>Sign Up for Free</h1>
 
                     <form action="/" method="post">
 
@@ -104,7 +103,7 @@
                                 <label>
                                     Last Name<span class="req">*</span>
                                 </label>
-                                <input type="text"required autocomplete="off"/>
+                                <input type="text" required autocomplete="off"/>
                             </div>
                         </div>
 
@@ -137,7 +136,7 @@
                             <label>
                                 Email Address<span class="req">*</span>
                             </label>
-                            <input type="email"required autocomplete="off"/>
+                            <input type="email" required autocomplete="off"/>
                         </div>
 
                         <div class="field-wrap">
