@@ -43,8 +43,8 @@ public class ControllerRegistrati {
     }
     
     @RequestMapping(value="/logout", method= RequestMethod.GET)
-    public String logout(HttpSession session,ModelMap map){
+    public String logout(HttpSession session){
         session.invalidate();
-        return "index";  
+        return "/";  
     }
 }
