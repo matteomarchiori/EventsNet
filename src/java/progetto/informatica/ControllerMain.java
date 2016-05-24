@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author chnedev
  */
 @Controller
-public class MainController {
+public class ControllerMain {
 
     //private static CRUD crud = new CRUD();
 
