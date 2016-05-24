@@ -30,5 +30,10 @@ public class MainController {
     public String login(ModelMap m) {
         return "login";
     }
+    
+    @RequestMapping(value = "/event", method = RequestMethod.GET)
+    public String event() {
+        return "event";
+    }
 
 }//MainController
