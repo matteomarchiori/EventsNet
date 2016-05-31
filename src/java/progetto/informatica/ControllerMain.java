@@ -25,7 +25,14 @@ public class ControllerMain {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
+    public String login(ModelMap map) {
+        map.put("carica","login");
+        return "login";
+    }
+    
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(ModelMap map) {
+        map.put("carica", "register");
         return "login";
     }
     
