@@ -24,18 +24,6 @@ public class ControllerMain {
         return "index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(ModelMap map) {
-        map.put("carica","login");
-        return "login";
-    }
-    
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register(ModelMap map) {
-        map.put("carica", "register");
-        return "login";
-    }
-    
     @RequestMapping(value = "/event", method = RequestMethod.GET)
     public String event() {
         return "event";

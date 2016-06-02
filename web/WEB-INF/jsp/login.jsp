@@ -30,8 +30,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>Sign-Up</title>
-
-
     </head>
 
     <body>
@@ -68,9 +66,13 @@
                         <li>
                             <a class="page-scroll" href="#">Contact</a>
                         </li>
-                        <li>
-                            <a class="page-scroll active" href="./login">Login</a>
-                        </li>
+                        <%
+                            if (session.getAttribute("nick") == null) {
+                                out.print("<li><a class=\"page-scroll\" href=\"./loginForm?form=login\">Login</a></li>");
+                            } else {
+                                out.print("<li><a class=\"page-scroll\" href=\"./logout\">Logout</a></li>");
+                            }
+                        %>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -82,43 +84,43 @@
         <div class="form">
 
             <ul class="tab-group">
-                <li class="tab active"><a href="#signup">Sign Up</a></li>
-                <li class="tab"><a href="#login">Log In</a></li>
+                <li class="tab active"><a href="#signup">Sign up</a></li>
+                <li class="tab"><a href="#login">Log in</a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="signup">   
 
-                    <form action="/" method="post">
+                    <form action="./register${nick}${password}${nome}${cognome}" method="post">
 
                         <div class="top-row">
                             <div class="field-wrap">
                                 <label>
                                     First Name<span class="req">*</span>
                                 </label>
-                                <input type="text" required autocomplete="off" />
+                                <input type="text" name="nome" required autocomplete="off" />
                             </div>
 
                             <div class="field-wrap">
                                 <label>
                                     Last Name<span class="req">*</span>
                                 </label>
-                                <input type="text" required autocomplete="off"/>
+                                <input type="text" name="cognome" required autocomplete="off"/>
                             </div>
                         </div>
 
                         <div class="field-wrap">
                             <label>
-                                Email Address<span class="req">*</span>
+                                Nickname<span class="req">*</span>
                             </label>
-                            <input type="email" required autocomplete="off"/>
+                            <input type="nickname" name="nick" required autocomplete="off"/>
                         </div>
 
                         <div class="field-wrap">
                             <label>
                                 Set A Password<span class="req">*</span>
                             </label>
-                            <input type="password" required autocomplete="off"/>
+                            <input type="password" name="password" required autocomplete="off"/>
                         </div>
 
                         <button type="submit" class="button button-block"/>register</button>
@@ -126,29 +128,25 @@
                     </form>
 
                 </div>
-
                 <div id="login">   
                     <h1>Welcome Back.</h1>
 
-                    <form action="/" method="post">
+                    <form action="./login${nick}${password}" method="post">
 
                         <div class="field-wrap">
                             <label>
-                                Email Address<span class="req">*</span>
+                                Nickname<span class="req">*</span>
                             </label>
-                            <input type="email" required autocomplete="off"/>
+                            <input type="nickname" name="nick" required autocomplete="off"/>
                         </div>
 
                         <div class="field-wrap">
                             <label>
                                 Password<span class="req">*</span>
                             </label>
-                            <input type="password" required autocomplete="off"/>
+                            <input type="password" name="password" required autocomplete="off"/>
                         </div>
-
-                        <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-                        <button class="button button-block"/>Log In</button>
+                        <button type="submit" class="button button-block"/>Log In</button>
 
                     </form>
 

@@ -123,7 +123,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Artista").addEntity(Artista.class);
+            query = sessione.createSQLQuery("select * from Artisti").addEntity(Artista.class);
             List<Artista> artisti = query.list();
             transazione.commit();
             return artisti;
@@ -141,7 +141,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Artista where Id_Artista = "+id+";").addEntity(Artista.class);
+            query = sessione.createSQLQuery("select * from Artisti where Id_Artista = "+id+";").addEntity(Artista.class);
             Artista a = null;
             if(!query.list().isEmpty()) a = (Artista) query.list().get(0);
             transazione.commit();
@@ -160,7 +160,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Artista where nome_arte = "+nome_arte+";").addEntity(Artista.class);
+            query = sessione.createSQLQuery("select * from Artisti where nome_arte = "+nome_arte+";").addEntity(Artista.class);
             Artista a = null;
             if(!query.list().isEmpty()) a = (Artista) query.list().get(0);
             transazione.commit();
@@ -180,7 +180,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Categoria").addEntity(Categoria.class);
+            query = sessione.createSQLQuery("select * from Categorie").addEntity(Categoria.class);
             List<Categoria> categorie = query.list();
             transazione.commit();
             return categorie;
@@ -198,7 +198,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Categoria where Id_Categoria = "+id+";").addEntity(Categoria.class);
+            query = sessione.createSQLQuery("select * from Categorie where Id_Categoria = "+id+";").addEntity(Categoria.class);
             Categoria c = null;
             if(!query.list().isEmpty()) c = (Categoria) query.list().get(0);
             transazione.commit();
@@ -217,7 +217,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Categoria where Nome = "+nome+";").addEntity(Categoria.class);
+            query = sessione.createSQLQuery("select * from Categorie where Nome = "+nome+";").addEntity(Categoria.class);
             Categoria c = null;
             if(!query.list().isEmpty()) c = (Categoria) query.list().get(0);
             transazione.commit();
@@ -237,7 +237,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Commento").addEntity(Commento.class);
+            query = sessione.createSQLQuery("select * from Commenti").addEntity(Commento.class);
             List<Commento> commento = query.list();
             transazione.commit();
             return commento;
@@ -255,7 +255,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Commento where Id_Commento = "+id+";").addEntity(Commento.class);
+            query = sessione.createSQLQuery("select * from Commenti where Id_Commento = "+id+";").addEntity(Commento.class);
             Commento commento = null;
             if(!query.list().isEmpty()) commento = (Commento) query.list().get(0);
             transazione.commit();
@@ -275,7 +275,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Evento;").addEntity(Evento.class);
+            query = sessione.createSQLQuery("select * from Eventi;").addEntity(Evento.class);
             List<Evento> eventi = query.list();
             transazione.commit();
             return eventi;
@@ -294,7 +294,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Evento ev = null;
-            query = sessione.createSQLQuery("select * from Evento where Id_Evento = \""+id+"\";").addEntity(Evento.class);
+            query = sessione.createSQLQuery("select * from Eventi where Id_Evento = \""+id+"\";").addEntity(Evento.class);
             if(!query.list().isEmpty()) ev = (Evento) query.list().get(0);
             transazione.commit();
             return ev;
@@ -313,7 +313,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Evento ev = null;
-            query = sessione.createSQLQuery("select * from Evento where Luogo = \""+luogo+"\";").addEntity(Evento.class);
+            query = sessione.createSQLQuery("select * from Eventi where Luogo = \""+luogo+"\";").addEntity(Evento.class);
             if(!query.list().isEmpty()) ev = (Evento) query.list().get(0);
             transazione.commit();
             return ev;
@@ -332,7 +332,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Evento ev = null;
-            query = sessione.createSQLQuery("select * from Evento where Data = \""+data+"\";").addEntity(Evento.class);
+            query = sessione.createSQLQuery("select * from Eventi where Data = \""+data+"\";").addEntity(Evento.class);
             if(!query.list().isEmpty()) ev = (Evento) query.list().get(0);
             transazione.commit();
             return ev;
@@ -351,7 +351,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Evento ev = null;
-            query = sessione.createSQLQuery("select * from Evento where Titolo = \""+titolo+"\";").addEntity(Evento.class);
+            query = sessione.createSQLQuery("select * from Eventi where Titolo = \""+titolo+"\";").addEntity(Evento.class);
             if(!query.list().isEmpty()) ev = (Evento) query.list().get(0);
             transazione.commit();
             return ev;
@@ -370,7 +370,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from Utente;").addEntity(Utente.class);
+            query = sessione.createSQLQuery("select * from Utenti;").addEntity(Utente.class);
             List<Utente> utente = query.list();
             transazione.commit();
             return utente;
@@ -389,7 +389,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Utente u = null;
-            query = sessione.createSQLQuery("select * from Utente where Nickname = \""+nickname+"\";").addEntity(Utente.class);
+            query = sessione.createSQLQuery("select * from Utenti where Nickname = \""+nickname+"\";").addEntity(Utente.class);
             if(!query.list().isEmpty()) u = (Utente) query.list().get(0);
             transazione.commit();
             return u;
@@ -408,7 +408,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Utente u = null;
-            query = sessione.createSQLQuery("select * from Utente where Nome = \""+nome+"\";").addEntity(Utente.class);
+            query = sessione.createSQLQuery("select * from Utenti where Nome = \""+nome+"\";").addEntity(Utente.class);
             if(!query.list().isEmpty()) u = (Utente) query.list().get(0);
             transazione.commit();
             return u;
@@ -427,7 +427,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             Utente u = null;
-            query = sessione.createSQLQuery("select * from Utente where Cognome = \""+cognome+"\";").addEntity(Utente.class);
+            query = sessione.createSQLQuery("select * from Utenti where Cognome = \""+cognome+"\";").addEntity(Utente.class);
             if(!query.list().isEmpty()) u = (Utente) query.list().get(0);
             transazione.commit();
             return u;
