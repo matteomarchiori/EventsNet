@@ -43,7 +43,7 @@
                 re.parentNode.removeChild(re);
                 var newdiv = document.createElement('div');
                 newdiv.id = "div" + i;
-                newdiv.innerHTML = "<input class=\"form-control\" placeholder=\"Artista " + (i + 1) + "\" id=\"artisti\" type=\"text\" name=\"artisti[]\">\n\
+                newdiv.innerHTML = "<input class=\"form-control\" placeholder=\"Artista " + (i + 1) + "\" id=\"artisti\" type=\"text\" name=\"artisti[]\">\n\<br/>
                                     <input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
                                     <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
                 document.getElementById("dynamicInput").appendChild(newdiv);
