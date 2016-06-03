@@ -1,6 +1,6 @@
 <%-- 
-    Document   : event
-    Created on : 3-giu-2016, 12.47.10
+    Document   : list_events
+    Created on : 3-giu-2016, 12.48.47
     Author     : chnedev
 --%>
 

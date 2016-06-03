@@ -28,5 +28,15 @@ public class ControllerMain {
     public String event() {
         return "event";
     }
+    
+    @RequestMapping(value = "/list_events", method = RequestMethod.GET)
+    public String list_events() {
+        return "list_events";
+    }
+    
+    @RequestMapping(value = "/add_event", method = RequestMethod.GET)
+    public String add_event() {
+        return "add_event";
+    }
 
 }//MainController

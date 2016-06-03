@@ -10,13 +10,14 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>EventsNet</title>
-
         <!-- Bootstrap Core CSS -->
         <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="./resources/css/agency.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/css/agency.css" >
+        <link rel="stylesheet" href="./resources/css/normalize.css">
+        <link rel="stylesheet" href="./resources/css/style.css">
+        <link rel="stylesheet" href="./resources/css/custom.css">
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -24,6 +25,7 @@
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,13 +33,43 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <title>Nuovo evento</title>
+        <script>
+            var i = 1;
+            function aggiungiArtista() {
+                var add = document.getElementById("add");
+                add.parentNode.removeChild(add);
+                var re = document.getElementById("delete");
+                re.parentNode.removeChild(re);
+                var newdiv = document.createElement('div');
+                newdiv.id = "div" + i;
+                newdiv.innerHTML = "<input class=\"form-control\" placeholder=\"Artista " + (i + 1) + "\" id=\"artisti\" type=\"text\" name=\"artisti[]\"><br/>\n\
+                                    <input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
+                                    <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
+                document.getElementById("dynamicInput").appendChild(newdiv);
+                i++;
+            }
+            function eliminaArtista() {
+                if (i > 1) {
+                    i--;
+                    var olddiv = document.getElementById('div' + i);
+                    olddiv.parentNode.removeChild(olddiv);
+                    if (i === 1)
+                        var newdiv = document.getElementById('div');
+                    else
+                        var newdiv = document.getElementById('div' + (i--));
+                    newdiv.innerHTML += "<input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
+                                        <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
+                    i++;
+                }
+            }
+        </script>
     </head>
 
-    <body id="page-top" class="index">
+    <body>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top  block-nav">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
@@ -54,7 +86,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="hidden">
-                            <a href="#page-top"></a>
+                            <a href="./"></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="./">Home</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="./about">About</a>
@@ -65,7 +100,6 @@
                         <li>
                             <a class="page-scroll" href="./contact">Contact</a>
                         </li>
-
                         <%
                             if (session.getAttribute("nick") == null) {
                                 out.print("<li><a class=\"page-scroll\" href=\"./loginForm?form=login\">Login</a></li>");
@@ -73,7 +107,6 @@
                                 out.print("<li><a class=\"page-scroll\" href=\"./logout\">Logout</a></li>");
                             }
                         %>
-
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -81,99 +114,63 @@
             <!-- /.container-fluid -->
         </nav>
 
-        <!-- Header -->
-        <header>
+        <header style="background:url(./resources/img/add-event-bg.jpg);">
             <div class="container">
                 <div class="intro-text">
-                    <div class="intro-lead-in">welcome to the community</div>
-                    <div class="intro-heading">It's Nice To Meet You</div>
-                     <%
-                            if (session.getAttribute("nick") == null) {
-                                out.print("<a href='./loginForm?form=register' class='page-scroll btn btn-xl'>REGISTER</a>");
-                            } else {
-                                out.print("<a href='./list_events' class='page-scroll btn btn-xl'>SEE EVENTS</a>");
-                            }
-                        %>
-                    
+                    <div class="intro-lead-in">you're part of the community</div>
+                    <div class="intro-heading">Register a new event</div>
+                    <a href='#add_event' class='page-scroll btn btn-xl'>ADD A NEW EVENT</a>
+
                 </div>
             </div>
         </header>
 
-        <!-- Services Section -->
-        <section id="services">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Services</h2>
-                        <h3 class="section-subheading text-muted">Share with people. Not only with us.</h3>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Community</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Share</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-thumbs-o-up fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Partecipate</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Contact Section -->
-        <section id="contact">
+        <section id="add_event">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Contact Us</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading">Nuovo evento</h2>
+                        <h3 class="section-subheading text-muted">Registra qui il tuo nuovo evento.</h3>
                     </div>
                 </div>
+                <div class="container"></div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <form name="sentMessage" id="contactForm" novalidate>
+                        <form action="./registraEvento" name="sentMessage" id="contactForm" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                        <input type="text" name="titolo" class="form-control" placeholder="Titolo evento" id="titolo" required data-validation-required-message="Scrivi qui il titolo.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                        <input type="text" name="luogo" class="form-control" placeholder="Luogo evento" id="luogo" required data-validation-required-message="Scrivi qui il luogo dell'evento.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                        <input type="text" name="data" class="form-control" placeholder="Data evento" id="data" required data-validation-required-message="Data dell'evento.">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="categoria" class="form-control" placeholder="Categoria" id="categoria" required data-validation-required-message="Specifica la categoria dell'evento.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                        <p class="help-block text-danger"></p>
+                                        <div id="dynamicInput">
+                                            <input class="form-control" placeholder="Artista 1" id="artisti" type="text" name="artisti[]"><br/>
+                                            <input class="col-md-6" type="button" id="add" value="+" onClick="aggiungiArtista();">
+                                            <input class="col-md-6" type="button" id="delete" value="-" onClick="eliminaArtista();">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
+                                    <br/><br/>
                                     <div id="success"></div>
-                                    <button type="submit" class="btn btn-xl">Send Message</button>
+                                    <button type="submit" class="btn btn-xl">Registra evento</button>
                                 </div>
                             </div>
                         </form>
