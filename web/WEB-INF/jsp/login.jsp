@@ -58,13 +58,13 @@
                             <a class="page-scroll" href="./">Home</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">About</a>
+                            <a class="page-scroll" href="./about">About</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="./event">Events</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Contact</a>
+                            <a class="page-scroll" href="./contact">Contact</a>
                         </li>
                         <%
                             if (session.getAttribute("nick") == null) {

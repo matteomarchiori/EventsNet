@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>EventsNet</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Events Net</a>
+                    <a class="navbar-brand page-scroll" href="./">Events Net</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,16 +57,13 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Home</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#">About</a>
+                            <a class="page-scroll" href="./about">About</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="./event">Events</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Contact</a>
+                            <a class="page-scroll" href="./contact">Contact</a>
                         </li>
 
                         <%
