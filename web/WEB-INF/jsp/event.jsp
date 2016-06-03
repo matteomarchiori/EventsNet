@@ -53,11 +53,14 @@
                     i--;
                     var olddiv = document.getElementById('div' + i);
                     olddiv.parentNode.removeChild(olddiv);
-                    if(i===1)var newdiv = document.getElementById('div');
-                    else var newdiv = document.getElementById('div' + (i--));      
+                    var id;
+                    if(i==1) id = 'dynamicInput';
+                    else {
+                        id = 'div' + (i-1);
+                    }
+                    var newdiv = document.getElementById(id);
                     newdiv.innerHTML += "<input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
                                         <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
-                    i++;
                 }
             }
         </script>
