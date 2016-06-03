@@ -43,7 +43,7 @@
                 re.parentNode.removeChild(re);
                 var newdiv = document.createElement('div');
                 newdiv.id = "div" + i;
-                newdiv.innerHTML = "<input class=\"form-control\" placeholder=\"Artista " + (i + 1) + "\" id=\"artisti\" type=\"text\" name=\"artisti[]\"><br/>\n\
+                newdiv.innerHTML = "<input class=\"form-control\" placeholder=\"Artista " + (i + 1) + "\" id=\"artisti\" type=\"text\" name=\"artisti[]\">\n\
                                     <input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
                                     <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
                 document.getElementById("dynamicInput").appendChild(newdiv);
@@ -54,13 +54,14 @@
                     i--;
                     var olddiv = document.getElementById('div' + i);
                     olddiv.parentNode.removeChild(olddiv);
-                    if (i === 1)
-                        var newdiv = document.getElementById('div');
-                    else
-                        var newdiv = document.getElementById('div' + (i--));
+                    var id;
+                    if(i==1) id = 'dynamicInput';
+                    else {
+                        id = 'div' + (i-1);
+                    }
+                    var newdiv = document.getElementById(id);
                     newdiv.innerHTML += "<input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
                                         <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
-                    i++;
                 }
             }
         </script>
@@ -114,7 +115,7 @@
             <!-- /.container-fluid -->
         </nav>
 
-        <header style="background:url(./resources/img/add-event-bg.jpg);">
+        <header style="background-image:url(./resources/img/add-event-bg.jpg);">
             <div class="container">
                 <div class="intro-text">
                     <div class="intro-lead-in">you're part of the community</div>

@@ -38,37 +38,7 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>Nuovo evento</title>
-        <script>
-            var i = 1;
-            function aggiungiArtista() {
-                var add = document.getElementById("add");
-                add.parentNode.removeChild(add);
-                var re = document.getElementById("delete");
-                re.parentNode.removeChild(re);
-                var newdiv = document.createElement('div');
-                newdiv.id = "div" + i;
-                newdiv.innerHTML = "<input class=\"form-control\" placeholder=\"Artista " + (i + 1) + "\" id=\"artisti\" type=\"text\" name=\"artisti[]\">\n\
-                                    <input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
-                                    <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
-                document.getElementById("dynamicInput").appendChild(newdiv);
-                i++;
-            }
-            function eliminaArtista() {
-                if (i > 1) {
-                    i--;
-                    var olddiv = document.getElementById('div' + i);
-                    olddiv.parentNode.removeChild(olddiv);
-                    var id;
-                    if(i==1) id = 'dynamicInput';
-                    else {
-                        id = 'div' + (i-1);
-                    }
-                    var newdiv = document.getElementById(id);
-                    newdiv.innerHTML += "<input class=\"col-md-6\" type=\"button\" id=\"add\" value=\"+\" onClick=\"aggiungiArtista();\">\n\
-                                        <input class=\"col-md-6\" type=\"button\" id=\"delete\" value=\"-\" onClick=\"eliminaArtista();\">";
-                }
-            }
-        </script>
+        
     </head>
     <body>
         <h1>Hello World!</h1>

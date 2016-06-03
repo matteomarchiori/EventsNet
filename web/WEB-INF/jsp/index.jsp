@@ -60,7 +60,7 @@
                             <a class="page-scroll" href="./about">About</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="./event">Events</a>
+                            <a class="page-scroll" href="./list_events">Events</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="./contact">Contact</a>
